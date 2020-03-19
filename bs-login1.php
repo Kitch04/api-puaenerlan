@@ -5,9 +5,9 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="google-signin-scope" content="profile email">
-<meta name="google-signin-client_id" content="39318148952-mnpsqilhqc7cg6o36ri5pqbd510e4fp0.apps.googleusercontent.com">
+<meta name="google-signin-client_id" content="414340021624-iuucd1961p5mli211o1ovo3v8mdftk6b.apps.googleusercontent.com">
 <script src="https://apis.google.com/js/platform.js" async defer></script>
-<title>Login - Ice Inventory</title>
+<title>Exam</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -103,7 +103,7 @@
 			try {
 				
 			if (isset($_SESSION['facebook_access_token'])) {
-				header('Location: http://localhost/api-pua-master/table.php');
+				header('Location: https://api-kitch.herokuapp.com/');
 			
 			} else {
 			  $accessToken = $helper->getAccessToken();
@@ -119,7 +119,7 @@
 			  exit;
 			}
 			if (isset($accessToken)) {
-				header('Location: : http://localhost/api-pua-master/table.php');
+				header('Location: : https://api-kitch.herokuapp.com/');
 				
 			if (isset($_SESSION['facebook_access_token'])) {
 				
@@ -137,11 +137,11 @@
 			}
 			// redirect the user to the profile page if it has "code" GET variable
 			if (isset($_GET['code'])) {
-			header('Location: http://localhost/api-pua-master/table.php');
+			header('Location: https://api-kitch.herokuapp.com/');
 			}
 			// getting basic info about user
 			try {
-			header('Location: http://localhost/api-pua-master/table.php');
+			header('Location: https://api-kitch.herokuapp.com/');
 			$profile_request = $fb->get('/me?fields=name,first_name,last_name,email');
 			$requestPicture = $fb->get('/me/picture?redirect=false&height=200'); //getting user picture
 			$picture = $requestPicture->getGraphUser();
@@ -168,7 +168,7 @@
 			}
 			} else {
 			// replace your website URL same as added in the developers.Facebook.com/apps e.g. if you used http instead of https and you used            
-			$loginUrl = $helper->getLoginUrl('http://localhost/api-pua-master/table.php', $permissions);
+			$loginUrl = $helper->getLoginUrl('https://api-kitch.herokuapp.com/', $permissions);
 			echo '<a href="' . $loginUrl . '"><div class="fb-login-button" data-width="" data-size="large" data-button-type="login_with" data-layout="default" data-auto-logout-link="true" data-use-continue-as="true"></div></a>';
 			}
 			?>
@@ -177,7 +177,7 @@
 			<div id="my-signin2" data-onsuccess="onSuccess" data-redirecturi="https://iceinventory.000webhostapp.com/?p=admin"></div>
 			<script>
     function onSuccess(googleUser) {
-        window.location="http://localhost/api-pua-master/table.php";
+        window.location="https://api-kitch.herokuapp.com/";
     }
     function onFailure(error) {
       console.log(error);
@@ -199,4 +199,4 @@
         </div>
 </div>
 </body>
-</html>                            
+</html>         
