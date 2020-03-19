@@ -103,7 +103,7 @@
 			try {
 				
 			if (isset($_SESSION['facebook_access_token'])) {
-				header('Location: https://api-kitch.herokuapp.com/');
+				header('Location: https://app-puaenerlan.herokuapp.com/');
 			
 			} else {
 			  $accessToken = $helper->getAccessToken();
@@ -119,7 +119,7 @@
 			  exit;
 			}
 			if (isset($accessToken)) {
-				header('Location: : https://api-kitch.herokuapp.com/');
+				header('Location: : https://app-puaenerlan.herokuapp.com/');
 				
 			if (isset($_SESSION['facebook_access_token'])) {
 				
@@ -137,11 +137,11 @@
 			}
 			// redirect the user to the profile page if it has "code" GET variable
 			if (isset($_GET['code'])) {
-			header('Location: https://api-kitch.herokuapp.com/');
+			header('Location: https://app-puaenerlan.herokuapp.com/');
 			}
 			// getting basic info about user
 			try {
-			header('Location: https://api-kitch.herokuapp.com/');
+			header('Location: https://app-puaenerlan.herokuapp.com/');
 			$profile_request = $fb->get('/me?fields=name,first_name,last_name,email');
 			$requestPicture = $fb->get('/me/picture?redirect=false&height=200'); //getting user picture
 			$picture = $requestPicture->getGraphUser();
@@ -168,7 +168,7 @@
 			}
 			} else {
 			// replace your website URL same as added in the developers.Facebook.com/apps e.g. if you used http instead of https and you used            
-			$loginUrl = $helper->getLoginUrl('https://api-kitch.herokuapp.com/', $permissions);
+			$loginUrl = $helper->getLoginUrl('https://app-puaenerlan.herokuapp.com/', $permissions);
 			echo '<a href="' . $loginUrl . '"><div class="fb-login-button" data-width="" data-size="large" data-button-type="login_with" data-layout="default" data-auto-logout-link="true" data-use-continue-as="true"></div></a>';
 			}
 			?>
@@ -177,7 +177,7 @@
 			<div id="my-signin2" data-onsuccess="onSuccess" data-redirecturi="https://iceinventory.000webhostapp.com/?p=admin"></div>
 			<script>
     function onSuccess(googleUser) {
-        window.location="https://api-kitch.herokuapp.com/";
+        window.location="https://app-puaenerlan.herokuapp.com/";
     }
     function onFailure(error) {
       console.log(error);
