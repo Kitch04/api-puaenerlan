@@ -48,11 +48,25 @@ $list = $data['records'];
 </table>	
 <a href="index.php" onclick="signOut();"><button>Sign out</button></a>
 <script>
-  function signOut() {
-    var auth2 = gapi.auth2.getAuthInstance();
-    auth2.signOut().then(function () {
-      console.log('User signed out.');
-    });
-  }
+@Override
+public void onClick(View v) {
+    switch (v.getId()) {
+        // ...
+        case R.id.button_sign_out:
+            signOut();
+            break;
+        // ...
+    }
+}
+
+private void signOut() {
+    mGoogleSignInClient.signOut()
+            .addOnCompleteListener(this, new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull Task<Void> task) {
+                    // ...
+                }
+            });
+}
 </script>
 
